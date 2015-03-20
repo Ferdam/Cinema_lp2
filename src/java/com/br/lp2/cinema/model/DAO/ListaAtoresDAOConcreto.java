@@ -1,19 +1,19 @@
 package com.br.lp2.cinema.model.DAO;
 
+import com.br.lp2.cinema.model.javabeans.Ator;
 import com.br.lp2.cinema.model.javabeans.ListaAtores;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author 31410758 // 31400817 // 31431038
  */
-public class ListaAtoresDAOConcreto implements ListaAtoresDAO {
+public class ListaAtoresDAOConcreto implements ListaAtoresDAO{
 
     private final Connection connection;
     private PreparedStatement pstm;
@@ -24,13 +24,15 @@ public class ListaAtoresDAOConcreto implements ListaAtoresDAO {
     }
 
     @Override
-    public boolean insereListaAtores(ListaAtores gen) {
+    public boolean insereListaAtores(ListaAtores a) {
         boolean resultado = false;
         try {
-            String sql = "INSERT INTO CINEMA_DB.LISTAATORES(nome) VALUES(?)";
+            String sql = "INSERT INTO CINEMA_DB.LISTAATORES(id_listaatores, lista) VALUES(?,?)";
 
             pstm = connection.prepareStatement(sql);
-            pstm.setString(1, gen.getNome());
+            pstm.setInt(1, a.getId());
+            pstm.setObject(2, a.getLista());
+            
             resultado = pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -40,7 +42,7 @@ public class ListaAtoresDAOConcreto implements ListaAtoresDAO {
     }
 
     @Override
-    public ArrayList<ListaAtores> buscaListaAtoress() {
+    public ArrayList<ListaAtores> buscaListaAtores() {
         ArrayList<ListaAtores> lista = new ArrayList<>();
         try {
             String sql = "SELECT * FROM CINEMA_DB.LISTAATORES";
@@ -48,73 +50,51 @@ public class ListaAtoresDAOConcreto implements ListaAtoresDAO {
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next()){
-                ListaAtores gen = new ListaAtores(rs.getInt("id_genero"), rs.getString("nome"));
-                lista.add(gen);
+                ListaAtores a = new ListaAtores((ArrayList<Ator>) rs.getObject("lista"), rs.getInt("id_listaatores"));
+                lista.add(a);
             }
             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return lista;}
+        return lista;    
+    }
+
 
     @Override
-    public ListaAtores buscaListaAtoresPorId(int id_genero) {
-        ListaAtores gen = null;
+    public ListaAtores buscaListaAtoresPorId(int id_lista) {
+        ListaAtores a = null;
             
         try {
-            String sql = "SELECT * FROM CINEMA_DB.LISTAATORES WHERE id_genero = ?";
+            String sql = "SELECT * FROM CINEMA_DB.LISTAATORES WHERE id_listaatores=?";
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, id_genero);
+            pstm.setString(1, "id_listaatores");
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next()){
-                gen = new ListaAtores(rs.getInt("id_genero"),rs.getString("nome"));
+                a = new ListaAtores((ArrayList<Ator>) rs.getObject("lista"), rs.getInt("id_listaatores"));
             }
             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return gen;
-        
+        return a;
     }
 
     @Override
-    public ListaAtores buscaListaAtoresPorNome(String nome) {
-        ListaAtores gen = new ListaAtores();
-            
-        try {
-            String sql = "SELECT * FROM CINEMA_DB.LISTAATORES WHERE nome=?";
-            pstm = connection.prepareStatement(sql);
-            pstm.setString(1, "nome");
-            ResultSet rs = pstm.executeQuery();
-            
-            while(rs.next()){
-                gen.setNome(rs.getString("nome"));
-                gen.setId(rs.getInt("id_genero"));
-            }
-            
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return gen;
-        
-    }
-
-    @Override
-    public boolean atualizaListaAtores(int id_genero, ListaAtores genero) {
+    public boolean atualizaListaAtores(int id_listaatores, ListaAtores a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean removeListaAtores(int id_genero) {
+    public boolean removeListaAtores(int id_listaatores) {
         boolean resultado = false;
         try {
-            String sql = "DELETE FROM CINEMA_DB.LISTAATORES WHERE id_genero = ? ";
+            String sql = "DELETE FROM CINEMA_DB.LISTAATORES WHERE id_listaatores = ? ";
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, id_genero);
+            pstm.setInt(1, id_listaatores);
             resultado = pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -122,5 +102,5 @@ public class ListaAtoresDAOConcreto implements ListaAtoresDAO {
 
         return resultado;
     }
-
+    
 }
