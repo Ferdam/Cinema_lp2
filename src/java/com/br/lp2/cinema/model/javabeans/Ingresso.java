@@ -2,7 +2,7 @@ package com.br.lp2.cinema.model.javabeans;
 
 /**
  *
- * @author 31431038
+ * @author 31410758 // 31400817 // 31431038
  */
 public class Ingresso {
     
