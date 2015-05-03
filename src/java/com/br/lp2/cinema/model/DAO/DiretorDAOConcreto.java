@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author 31410758 // 31400817 // 31431038
+ * @author Leticia
  */
 public class DiretorDAOConcreto implements DiretorDAO{
 
@@ -46,7 +46,7 @@ public class DiretorDAOConcreto implements DiretorDAO{
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next()){
-                Diretor dir = new Diretor(rs.getString("nome"), rs.getInt("id_diretor"));
+                Diretor dir = new Diretor(rs.getString("nome"), rs.getInt("id"));
                 lista.add(dir);
             }
             
@@ -57,17 +57,17 @@ public class DiretorDAOConcreto implements DiretorDAO{
         return lista;    
     }
 
-    public Diretor buscaDiretorPorId(int id_diretor) {
+    public Diretor buscaDiretorPorId(int id) {
         Diretor dir = null;
             
         try {
-            String sql = "SELECT * FROM CINEMA_DB.DIRETOR WHERE id_diretor = ?";
+            String sql = "SELECT * FROM CINEMA_DB.DIRETOR WHERE id = ?";
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, id_diretor);
+            pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next()){
-                dir = new Diretor(rs.getString("nome"), rs.getInt("id_diretor"));
+                dir = new Diretor(rs.getString("nome"), rs.getInt("id"));
             }
             
         } catch (SQLException ex) {
@@ -88,7 +88,7 @@ public class DiretorDAOConcreto implements DiretorDAO{
             
             while(rs.next()){
                 dir.setNome(rs.getString("nome"));
-                dir.setReg(rs.getInt("id_diretor"));
+                dir.setReg(rs.getInt("id"));
             }
             
         } catch (SQLException ex) {
@@ -99,12 +99,12 @@ public class DiretorDAOConcreto implements DiretorDAO{
         
     }
 
-    public boolean atualizaDiretor(int id_diretor, Diretor genero) {
+    public boolean atualizaDiretor(int id, Diretor genero) {
         boolean resultado = false;
 //        try {
-//            String sql = "DELETE FROM CINEMA_DB.DIRETOR WHERE id_diretor = ? ";
+//            String sql = "DELETE FROM CINEMA_DB.DIRETOR WHERE id = ? ";
 //            pstm = connection.prepareStatement(sql);
-//            pstm.setInt(1, id_diretor);
+//            pstm.setInt(1, id);
 //            resultado = pstm.execute();
 //        } catch (SQLException ex) {
 //            ex.printStackTrace();
@@ -113,12 +113,12 @@ public class DiretorDAOConcreto implements DiretorDAO{
         return resultado;
     }
 
-    public boolean removeDiretor(int id_diretor) {
+    public boolean removeDiretor(int id) {
         boolean resultado = false;
         try {
-            String sql = "DELETE FROM CINEMA_DB.DIRETOR WHERE id_diretor = ? ";
+            String sql = "DELETE FROM CINEMA_DB.DIRETOR WHERE id = ? ";
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, id_diretor);
+            pstm.setInt(1, id);
             resultado = pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();

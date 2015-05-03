@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author 31410758 // 31400817 // 31431038
+ * @author Leticia
  */
 public class GeneroDAOConcreto implements GeneroDAO {
 
@@ -48,7 +48,7 @@ public class GeneroDAOConcreto implements GeneroDAO {
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next()){
-                Genero gen = new Genero(rs.getInt("id_genero"), rs.getString("nome"));
+                Genero gen = new Genero(rs.getInt("id"), rs.getString("nome"));
                 lista.add(gen);
             }
             
@@ -59,17 +59,17 @@ public class GeneroDAOConcreto implements GeneroDAO {
         return lista;}
 
     @Override
-    public Genero buscaGeneroPorId(int id_genero) {
+    public Genero buscaGeneroPorId(int id) {
         Genero gen = null;
             
         try {
-            String sql = "SELECT * FROM CINEMA_DB.GENERO WHERE id_genero = ?";
+            String sql = "SELECT * FROM CINEMA_DB.GENERO WHERE id = ?";
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, id_genero);
+            pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next()){
-                gen = new Genero(rs.getInt("id_genero"),rs.getString("nome"));
+                gen = new Genero(rs.getInt("id"),rs.getString("nome"));
             }
             
         } catch (SQLException ex) {
@@ -92,7 +92,7 @@ public class GeneroDAOConcreto implements GeneroDAO {
             
             while(rs.next()){
                 gen.setNome(rs.getString("nome"));
-                gen.setId(rs.getInt("id_genero"));
+                gen.setId(rs.getInt("id"));
             }
             
         } catch (SQLException ex) {
@@ -104,17 +104,17 @@ public class GeneroDAOConcreto implements GeneroDAO {
     }
 
     @Override
-    public boolean atualizaGenero(int id_genero, Genero genero) {
+    public boolean atualizaGenero(int id, Genero genero) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean removeGenero(int id_genero) {
+    public boolean removeGenero(int id) {
         boolean resultado = false;
         try {
-            String sql = "DELETE FROM CINEMA_DB.GENERO WHERE id_genero = ? ";
+            String sql = "DELETE FROM CINEMA_DB.GENERO WHERE id = ? ";
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, id_genero);
+            pstm.setInt(1, id);
             resultado = pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();

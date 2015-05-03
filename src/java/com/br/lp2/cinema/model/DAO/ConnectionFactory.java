@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author 31410758 // 31400817 // 31431038
+ * @author Leticia
  */
 
 public class ConnectionFactory {

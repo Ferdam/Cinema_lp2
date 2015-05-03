@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author 31410758 // 31400817 // 31431038
+ * @author Leticia
  */
 public class AtorDAOConcreto implements AtorDAO{
 
@@ -50,7 +50,7 @@ public class AtorDAOConcreto implements AtorDAO{
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next()){
-                Ator a = new Ator(rs.getInt("id_ator"), rs.getString("nome"), rs.getDate("dataNasc"), rs.getString("nacionalidade"));
+                Ator a = new Ator(rs.getInt("id_ator"),rs.getString("nome"), rs.getDate("dataNasc"), rs.getString("nacionalidade"));
                 lista.add(a);
             }
             
@@ -73,7 +73,7 @@ public class AtorDAOConcreto implements AtorDAO{
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next()){
-                a = new Ator(rs.getInt("id_ator"), rs.getString("nome"), rs.getDate("dataNasc"), rs.getString("nacionalidade"));
+                a = new Ator(rs.getInt("id_ator"),rs.getString("nome"), rs.getDate("dataNasc"), rs.getString("nacionalidade"));
             }
             
         } catch (SQLException ex) {
@@ -84,17 +84,17 @@ public class AtorDAOConcreto implements AtorDAO{
     }
 
     @Override
-    public boolean atualizaAtor(int id_ator, Ator a) {
+    public boolean atualizaAtor(int id, Ator a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean removeAtor(int id_ator) {
+    public boolean removeAtor(int id) {
         boolean resultado = false;
         try {
-            String sql = "DELETE FROM CINEMA_DB.ATOR WHERE id_ator = ? ";
+            String sql = "DELETE FROM CINEMA_DB.ATOR WHERE id = ? ";
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, id_ator);
+            pstm.setInt(1, id);
             resultado = pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();

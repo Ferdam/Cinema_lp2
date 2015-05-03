@@ -1,0 +1,80 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 3, 2015, 2:48:35 PM
+    Author     : Ferdam-DMD-SSD
+*/
+
+@import url("http://fonts.googleapis.com/css?family=Cookie");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+
+#menutree li {
+    list-style: none;          /* all list item li dots invisible */
+}
+
+li .menu_label + input[type=checkbox] {
+/*    opacity: 0;*/
+    /* checkboxes invisible and use no space */
+    display: none;
+}                        /* display: none; is better but fails in ie8 */
+
+li .menu_label {
+    cursor: pointer;        /* cursor changes when you mouse over this class */
+}                         /* could add the many user-select: none; commands here */
+
+li .menu_label + input[type=checkbox] + ol > li
+{
+    display: none;         /* prevents sublists below unchecked labels from displaying */
+}
+
+li .menu_label + input[type=checkbox]:checked + ol > li
+{
+    display: block;         /* display submenu on click */
+}
+
+.nav .bc1 {
+    background: #f00;
+    padding-left: 5px;
+    display: list-item;
+}
+
+.nav li .menu_label{
+    position: relative;
+    display: block;
+/*    padding: 15px 15px 15px 50px;*/
+    padding-left: 42px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #eeeeee;
+    text-decoration: none;
+}
+
+.nav li {
+    position: relative;
+    display: block;
+/*    padding: 15px 15px 15px 50px;*/
+    font-size: 12px;
+    font-weight: 600;
+    color: #eeeeee;
+
+    text-decoration: none;
+}
+
+.nav .menu_label {
+    padding: 15px 0px 15px 0px;
+    border-bottom: 1px solid #272727;
+}
+
+.nav li:hover {
+    background: #535353;
+}
+.nav li .menu_label:hover {
+    background: #535353;
+}
+.nav li ol li a:hover {
+    background: #757575;
+}

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author 31410758 // 31400817 // 31431038
+ * @author Leticia
  */
 public interface DiretorDAO {
 
@@ -13,12 +13,12 @@ public interface DiretorDAO {
     public boolean insereDiretor(Diretor dir);
     //READ
     public ArrayList<Diretor> buscaDiretor();
-    public Diretor buscaDiretorPorId(int id_diretor);
+    public Diretor buscaDiretorPorId(int id);
     public Diretor buscaDiretorPorNome(String nome);
     //UPDATE
-    public boolean atualizaDiretor(int id_diretor, Diretor diretor);
+    public boolean atualizaDiretor(int id, Diretor diretor);
     //DELETE
-    public boolean removeDiretor(int id_diretor);
+    public boolean removeDiretor(int id);
 
     
 }
