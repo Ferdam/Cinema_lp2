@@ -1,0 +1,76 @@
+<script>
+    function sideMenuSetValue(id, value) {
+        document.getElementById(id).value=value;
+        document.getElementById('maincontroller').submit();
+        return false;
+    }
+</script>
+
+<ol id="menutree">
+
+    <form action="Controller" method="POST" id="maincontroller">
+        <input type="hidden" name="command" id="cmd"/>    
+        <li>
+            <label class="menu_label" for="c1">Ingressos</label>
+            <input type="checkbox" id="c1" checked />
+            <ol>
+
+                <li class="page_sel">
+                    <!--<input type="hidden" value="ingresso_g" name="command"/>-->
+                    <a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'ingresso_g');">Vender Ingressos</a>
+                </li>
+
+            </ol>
+        </li>
+
+        <li>
+            <label class="menu_label" for="c3">Gerenciar Filmes</label>
+            <input type="checkbox" id="c3" />                  
+            <ol>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'filme_list');">Listar Filmes</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'filme_add');">Adicionar Filme</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'filme_edit');">Editar Filme</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <label class="menu_label" for="c6">Gerenciar Atores</label>
+            <input type="checkbox" id="c6" />                  
+            <ol>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'ator_list');">Listar Ators</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'ator_add');">Adicionar Ator</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'ator_edit');">Editar Ator</a></li>
+            </ol>
+        </li>
+        
+        <li>
+            <label class="menu_label" for="c2">Gerenciar Sessões</label>
+            <input type="checkbox" id="c2" />                  
+            <ol>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'sessao_add');">Adicionar Sessão</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'sessao_edit');">Editar Sessão</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'sessao_rem');">Remover Sessão</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <label class="menu_label" for="c4">Gerenciar Sala</label>
+            <input type="checkbox" id="c4" />                  
+            <ol>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'sala_add');">Adicionar Sala</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'sala_edit');">Editar Sala</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'sala_rem');">Remover Sala</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <label class="menu_label" for="c5">Gerenciar Usuario</label>
+            <input type="checkbox" id="c5" />                  
+            <ol>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'user_add');">Adicionar Usuario</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'user_edit');">Editar Usuario</a></li>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'user_rem');">Remover Usuario</a></li>
+            </ol>
+        </li>
+    </form>
+</ol>

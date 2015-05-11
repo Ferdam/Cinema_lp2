@@ -9,14 +9,15 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Leticia
+ * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
  */
 
 public class ConnectionFactory {
     
-    private final String driver = "com.apache.derby.jdbc.EmbeddedDriver";
+    private final String driver = "org.apache.derby.jdbc.ClientDriver";
     private final String protocolo = "jdbc:derby:";
-    private final String dbName = "cinema_db";
+    private final String servidor = "//localhost:1527/";
+    private final String dbName = "CINEMA";
     private Connection connection;
 
     public ConnectionFactory(){
@@ -28,7 +29,7 @@ public class ConnectionFactory {
         if(tipo.equalsIgnoreCase("derby")){
             try {
                 Class.forName(driver).newInstance();
-                connection = DriverManager.getConnection(protocolo+dbName);
+                connection = DriverManager.getConnection(protocolo+servidor+dbName,"mack","mack");
             } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
                 ex.printStackTrace();
             }

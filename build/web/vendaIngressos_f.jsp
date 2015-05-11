@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="sidemenu_styles.css" >
     </head>
     <body>
-        <script src="functions.js"></script>
         <div class='wrapper'>
             <div class='header'>
                 <div class='title stripe_bg'>
@@ -36,17 +35,40 @@
                     <div class='search'>
                         <input placeholder='Search' type='text'>
                     </div>
-                    
+
                     <!--**********************|COLLAPSABLE SIDE MENU|**********************-->
 
                     <jsp:include page="sidemenu_func.jspf" flush="true"/>
-
+                    
                     <!--*******************************************************************-->
-
                 </div>  
                 <div class='content'>
                     <div class='title'>
-                        LOGO
+                        Venda de Ingressos
+                    </div>
+                    <div class='grid'>
+                        <div class='col'>
+                            <div class='head'>
+                                Primeiro painel
+                            </div>
+                            <form method="post">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><label>1o Item :</label></td>
+                                            <td>hjhj</td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2o Item :</label></td>
+                                            <td><input required="required" id="identifiant" name="identifiant" type="text" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class='btnset'>
+                                    <input class="button pri" type="submit" name="submit" value="Ok" />
+                                </div>
+
+                            </form>
                         </div>
                         <div class="footer"><p>Footer.</p></div>  
                     </div>

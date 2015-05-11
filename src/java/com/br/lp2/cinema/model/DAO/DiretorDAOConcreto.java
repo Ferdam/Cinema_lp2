@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Leticia
+ * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
  */
 public class DiretorDAOConcreto implements DiretorDAO{
 

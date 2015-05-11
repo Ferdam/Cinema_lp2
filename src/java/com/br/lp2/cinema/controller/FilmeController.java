@@ -9,15 +9,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
+ * @author Ferdam-DMD-SSD
  */
-public class IngressoController extends HttpServlet {
+@WebServlet(name = "FilmeController", urlPatterns = {"/FilmeController"})
+public class FilmeController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,31 +38,26 @@ public class IngressoController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet IngressoController</title>");
+            out.println("<title>Servlet FilmeController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet IngressoController ato " + request.getContextPath() + "</h1>");
-
+            out.println("<h1>Servlet FilmeController at " + request.getContextPath() + "</h1>");
+            
             String command = request.getParameter("command");
             RequestDispatcher rd = null;
             out.println(command);
-//            if ('f' == command.charAt(9)) {
-//                rd = request.getRequestDispatcher("vendaIngressos_f.jsp");
-//            } else {
-//                if ('g' == command.charAt(9)) {
-//                    rd = request.getRequestDispatcher("vendaIngressos_g.jsp");
-//                }
-//            }
-            if ("ingresso_f".equals(command)) {
-                rd = request.getRequestDispatcher("vendaIngressos_f.jsp");
-            } else if ("ingresso_g".equals(command)) {
-                rd = request.getRequestDispatcher("vendaIngressos_g.jsp");
+            if ("addFilme".equals(command)) {
+                rd = request.getRequestDispatcher("addFilme.jsp");
+            } else if ("editFilme".equals(command)) {
+                rd = request.getRequestDispatcher("editFilme.jsp");
+            } else if ("listFilme".equals(command)) {
+                rd = request.getRequestDispatcher("listFilme.jsp");
             }
 
             rd.forward(request, response);
+
             out.println("</body>");
             out.println("</html>");
-
         }
     }
 

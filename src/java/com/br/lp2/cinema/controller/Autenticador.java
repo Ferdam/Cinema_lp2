@@ -5,12 +5,14 @@
  */
 package com.br.lp2.cinema.controller;
 
+import com.br.lp2.cinema.model.DAO.UsuarioDAO;
+import com.br.lp2.cinema.model.DAO.UsuarioDAOConcreto;
 import com.br.lp2.cinema.model.javabeans.Usuario;
 import java.util.ArrayList;
 
 /**
  *
- * @author Leticia
+ * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
  */
 public class Autenticador {
     
@@ -21,10 +23,8 @@ public class Autenticador {
     }
     
     public String autentica(){
-        ArrayList<Usuario> listausuarios = new ArrayList<>();
-            listausuarios.add(new Usuario("ger", "ger", "gerente"));
-            listausuarios.add(new Usuario("func", "func", "funcionario"));
-            listausuarios.add(new Usuario("leticia", "123", "funcionario"));
+        UsuarioDAO dao = new UsuarioDAOConcreto();
+        ArrayList<Usuario> listausuarios = dao.buscaUsuario();
             
             String validado = "errado";
             

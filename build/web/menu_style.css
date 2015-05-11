@@ -107,7 +107,7 @@ input::-moz-focus-inner {
 }
 
 .header .user {
-/*    background: #303030; */
+    /*    background: #303030; */
     background: rgba(255,160,0,0.70);
     position: absolute;
     top: 17px;
@@ -228,6 +228,7 @@ input::-moz-focus-inner {
     text-decoration: none;
 }
 
+
 .nav li :before {
     font: 14px fontawesome;
     position: absolute;
@@ -236,23 +237,23 @@ input::-moz-focus-inner {
 }
 
 .nav li:nth-child(1) .menu_label:before {
-    content: '\f07a';
+    content: '\f145';
 }
 
 .nav li:nth-child(2) .menu_label:before {
-    content: '\f012';
+    content: '\f008';
 }
 
 .nav li:nth-child(3) .menu_label:before {
-    content: '\f0e8';
+    content: '\f00b';
 }
 
 .nav li:nth-child(4) .menu_label:before {
-    content: '\f0c3';
+    content: '\f0c0';
 }
 
 .nav li:nth-child(5) .menu_label:before {
-    content: '\f022';
+    content: '\f0c0';
 }
 
 .nav li:nth-child(6) .menu_label:before {
@@ -288,7 +289,6 @@ input::-moz-focus-inner {
 .nav li li a {
     padding: 10px 10px 10px 50px;
 }
-
 .nav li li a:before {
     content: '\f148' !important;
     font: 10px fontawesome;
@@ -315,12 +315,12 @@ input::-moz-focus-inner {
     -webkit-text-stroke-width: 0px;
     -webkit-text-stroke-color: #A3A3A3;
     -webkit-text-fill-color: rgba(0,0,0,0.125);
-    
+
     text-align: center;
     border: 1px solid #D2D2D2;
     border-radius: 3px;
-/*    background-image: url("img/pattern1d.png");*/
-/*    background-size: 32px 32px;*/
+    /*    background-image: url("img/pattern1d.png");*/
+    /*    background-size: 32px 32px;*/
     background: rgba(0,0,0,0.05);
 }
 

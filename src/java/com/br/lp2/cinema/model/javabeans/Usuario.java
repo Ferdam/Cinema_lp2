@@ -2,7 +2,7 @@ package com.br.lp2.cinema.model.javabeans;
 
 /**
  *
- * @author Leticia
+ * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
  */
 public class Usuario {
 

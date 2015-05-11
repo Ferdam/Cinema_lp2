@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Leticia
+ * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
  */
 public class Controller extends HttpServlet {
 
@@ -38,15 +38,27 @@ public class Controller extends HttpServlet {
 
             String command = request.getParameter("command");
             RequestDispatcher rd = null;
-            rd = request.getRequestDispatcher("Erro.jsp");
 
             if (command != null && !"".equals(command)) {
-                if ("login".startsWith(command)) {
+
+                if ("login".equals(command)) {
                     rd = request.getRequestDispatcher("/LoginController");
+                } else {
+                    if (command.startsWith("ingresso"))
+                        rd = request.getRequestDispatcher("/IngressoController");
+                    else if (command.startsWith("filme"))
+                        rd = request.getRequestDispatcher("/FilmeController");
+                    else if (command.startsWith("user"))
+                        rd = request.getRequestDispatcher("/UserController");
+                    else if (command.startsWith("sala"))
+                        rd = request.getRequestDispatcher("/SalaController");
+                    else if (command.startsWith("sessao"))
+                        rd = request.getRequestDispatcher("/SessaoController");
+                    else if (command.startsWith("ator"))
+                        rd = request.getRequestDispatcher("/AtorController");
                 }
-                if ("ingressocmd".startsWith(command)) {
-                    rd = request.getRequestDispatcher("/IngressoController");
-                }
+            } else {
+                rd = request.getRequestDispatcher("Erro.jsp");
             }
             rd.forward(request, response);
 

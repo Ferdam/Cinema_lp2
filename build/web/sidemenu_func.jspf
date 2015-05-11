@@ -1,0 +1,24 @@
+<ol id="menutree">
+
+    <form action="Controller" method="POST" id="maincontroller">
+        <input type="hidden" name="command" id="cmd"/>    
+        <li>
+            <label class="menu_label" for="c1">Ingressos</label>
+            <input type="checkbox" id="c1" checked />
+            <ol>
+                <li class="page_sel">
+                    <a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'ingresso_f');">Vender Ingressos</a>
+                    </form>
+                </li>
+            </ol>
+        </li>
+
+        <li>
+            <label class="menu_label" for="c5">Usuário</label>
+            <input type="checkbox" id="c5" />                  
+            <ol>
+                <li class="page"><a href="javascript:{}" onclick="sideMenuSetValue('cmd', 'user_setpass');">Alterar Senha</a></li>
+            </ol>
+        </li>
+    </form>
+</ol>

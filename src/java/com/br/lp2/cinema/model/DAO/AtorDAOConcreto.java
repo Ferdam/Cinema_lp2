@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Leticia
+ * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
  */
 public class AtorDAOConcreto implements AtorDAO{
 

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Leticia
+ * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
  */
 public class LoginController extends HttpServlet {
     
@@ -54,9 +54,11 @@ public class LoginController extends HttpServlet {
 //            else out.println("Erro");
             if (validado.equals("funcionario")) {
                 rd = request.getRequestDispatcher("menuFuncionario.jsp");
+                out.println("Seja bem vindo Funcionário <b>"+nome+"</b>.");
             }            
             if (validado.equals("gerente")) {
                 rd = request.getRequestDispatcher("menuGerente.jsp");
+                out.println("Seja bem vindo Gerente <b>"+nome+"</b>.");
             }
             if (validado.equals("errado")) {
                 rd = request.getRequestDispatcher("Erro.jsp");

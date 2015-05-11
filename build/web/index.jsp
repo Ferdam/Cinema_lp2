@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 07/04/2015, 11:07:49
-    Author     : Leticia
+    Author     : Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

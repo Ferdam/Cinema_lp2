@@ -9,15 +9,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
+ * @author Ferdam-DMD-SSD
  */
-public class IngressoController extends HttpServlet {
+@WebServlet(name = "SessaoController", urlPatterns = {"/SessaoController"})
+public class SessaoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,31 +38,26 @@ public class IngressoController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet IngressoController</title>");
+            out.println("<title>Servlet SessaoController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet IngressoController ato " + request.getContextPath() + "</h1>");
-
+            out.println("<h1>Servlet SessaoController at " + request.getContextPath() + "</h1>");
+            
             String command = request.getParameter("command");
             RequestDispatcher rd = null;
             out.println(command);
-//            if ('f' == command.charAt(9)) {
-//                rd = request.getRequestDispatcher("vendaIngressos_f.jsp");
-//            } else {
-//                if ('g' == command.charAt(9)) {
-//                    rd = request.getRequestDispatcher("vendaIngressos_g.jsp");
-//                }
-//            }
-            if ("ingresso_f".equals(command)) {
-                rd = request.getRequestDispatcher("vendaIngressos_f.jsp");
-            } else if ("ingresso_g".equals(command)) {
-                rd = request.getRequestDispatcher("vendaIngressos_g.jsp");
+            if ("addSessao".equals(command)) {
+                rd = request.getRequestDispatcher("addSessao.jsp");
+            } else if ("editSessao".equals(command)) {
+                rd = request.getRequestDispatcher("editSessao.jsp");
+            } else if ("remSessao".equals(command)) {
+                rd = request.getRequestDispatcher("remSessao.jsp");
             }
 
             rd.forward(request, response);
+
             out.println("</body>");
             out.println("</html>");
-
         }
     }
 

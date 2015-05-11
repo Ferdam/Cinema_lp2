@@ -1,7 +1,7 @@
 <%-- 
     Document   : Erro
     Created on : 24/03/2015, 11:23:53
-    Author     : Leticia
+    Author     : Daniel Meyer | Vinicius Zamarrenho | Leticia Lopes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Ocorreu um Erro Inesperado</h1>
-        <a href="/Cinema_1">P&aacute;gina Principal</a>
+        <a href="/Cinema_1">Pa&aacute;gina Principal</a>
     </body>
 </html>
